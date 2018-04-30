@@ -15,11 +15,16 @@ connection.on('connected', () => {
 connection.on('error', (err) => {
     console.log('Mongoose default connection error: ' + err);
 });
-
-app.use(bodyParser.json());
+app.use(express.static(__dirname + '/client/build/'));
 app.get('/', (req, res) => {
-    res.send('Hello world!')
+    res.sendFile(__dirname + '/client/build/index.html')
 })
+
+
+// app.use(bodyParser.json());
+// app.get('/', (req, res) => {
+//     res.send('Hello world!')
+// })
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
