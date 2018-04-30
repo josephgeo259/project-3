@@ -1,8 +1,8 @@
 require('dotenv').config()
-const mongoose = require('mongoose')
 const { Doctor } = require('./schema')
 const { Patient } = require('./schema')
 const { MedicalCondition } = require('./schema')
+const mongoose = require('mongoose')
 
 
 mongoose.Promise = global.Promise
@@ -18,7 +18,6 @@ const saved = async () => {
         specialty: 'Heart',
         hospital: 'Emory',
         location: 'Atlanta'
-        // patients: [ daniel, gwen ]
     })
 
     const jimmy = new Patient({
@@ -42,7 +41,21 @@ const saved = async () => {
         name: 'Annie',
         specialty: 'Brain',
         hospital: 'Rocky',
-        location: 'Arkansas', })
+        location: 'Arkansas', 
+    })
+    const joey = new Patient({
+        name: 'Joey',
+        age: 37,
+        address: '1234 windbrook dr tucker,ga 30078 ',
+        medicalHistory: 'I had chicken pox when I was younger.',
+    })
+    const cold = new MedicalCondition({
+        description: 'The common cold, also known simply as a cold, is a viral infectious disease of the upper respiratory tract that primarily affects the nose. The throat, sinuses, and larynx may also be affected. ',
+
+    })
+    joey.medicalConditions.push(cold)
+
+    annie.patients.push(joey)
 
     await annie.save()
 

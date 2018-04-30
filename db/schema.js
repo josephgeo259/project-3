@@ -24,7 +24,7 @@ const doctorSchema = new Schema({
 })
 
 const Doctor = mongoose.model('Doctor', doctorSchema)
-const Patient = mongoose.model('Patient', pateintSchema)
+const Patient = mongoose.model('Patient', patientSchema)
 const MedicalCondition = mongoose.model('MedicalConditions', medicalConditionSchema )
 
 module.exports = {
