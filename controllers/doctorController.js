@@ -2,67 +2,51 @@ const express = require('express')
 const router = express.Router()
 
 const Schema = require('../db/schema.js')
-const { Doctor } = Schema
+const { Doctor}  = Schema
 
 // INDEX route
-router.get('/', async (req, res) => {
-    try {
-        const doctors = await Doctor.find({})
-        res.json(doctors)
-    } catch (err) {
-        console.log(err)
-    }
+router.get('/', (req, res) => {
+    Doctor.find()
+        .then(doctors => {
+            res.json(doctors)
+        })
+        .catch((err) => console.log(err))
 })
-
 // CREATE route
-router.post('/', async (req, res) => {
-    try {
-        const newDoctor = req.body
-        const savedDoctor = await Doctor.create(newDoctor)
-        res.json(savedDoctor)
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
+
+router.post('/', (req, res) => {
+    const newDoctor = new Doctor(req.body.user)
+    newDoctor.save().then((doc) => {
+        res.json(doc)
+    }).catch(console.log)
 })
 
 // UPDATE route
-router.patch('/:id', async (req, res) => {
-    try {
-        const doctorId = req.params.id
-        const updatedDoctor = req.body
-        const savedDoctor = await Doctor.findByIdAndUpdate(doctorId, updatedDoctor)
-        res.json(savedDoctor)
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
-})
-
-// SHOW route
-router.get('/:id', async (req, res) => {
-    try {
-        const doctorId = req.params.id
-        const doctor = await Creature.findById(doctorId)
-        res.json(doctor)
-    } catch (err) {
-        console.log(err)
-        res.json(err)
-    }
-})
-
-// DELETE route
-router.delete('/:id', async (req, res) => {
-    try {
-        const doctorId = req.params.id
-        await Doctor.findByIdAndRemove(doctorId)
-        res.json({
-            msg: 'Successfully Deleted'
+router.patch('/:userId/', (req, res) => {
+    Doctor.findByIdAndUpdate(req.params.userId, req.body.user, { new: true })
+        .then((doc) => {
+            res.json(doc)
+        }).catch((error) => {
+            console.log(error)
         })
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
 })
+router.get('/:userId', (req, res) => {
+    Doctor.findById(req.params.docId)
+        .then((doc) => {
+            res.json(doc)
+        }).catch((error) => {
+            console.log(error)
+        })
+})
+
+router.delete('/:userId', (req, res) => {
+    Doctor.findByIdAndRemove(req.params.docId)
+        .then(() => {
+            res.sendStatus(400)
+        }).catch((error) => {
+            console.log(error)
+        })
+})
+
 
 module.exports = router
