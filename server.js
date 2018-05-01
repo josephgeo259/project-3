@@ -21,7 +21,8 @@ app.get('/', (req, res) => {
 })
 
 
-
+const doctorController = require('./controllers/doctorController')
+app.use('/api/doctors', doctorController)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
