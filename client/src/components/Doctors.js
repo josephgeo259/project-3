@@ -23,7 +23,7 @@ class Doctors extends Component {
     render() {
         return (
             <div>
-                <h1>Doctors</h1>
+                <h1>Doctors</h1> <Link to="/login">Doctor Login </Link>
                 {this.state.doctors.map(doctor => (
                     <Link key={doctor._id} to={`/${doctor._id}`}>
                         <h3>Name: {doctor.name}</h3>
@@ -32,9 +32,12 @@ class Doctors extends Component {
                         <h3>Location: {doctor.location}</h3>
                     </Link>
                 ))}
-                <button onClick={this.toggleShowNewForm}>Create New</button>
+                <button onClick={this.toggleShowNewForm}>Create New Doctor </button>
 
                 {this.state.showNewForm ? <NewDoctorForm getAllDoctors={this.getAllDoctors} /> : null}
+                
+                
+
             </div>
         )
     }

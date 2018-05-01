@@ -12,7 +12,7 @@ const db = mongoose.connection
 
 const saved = async () => {
     await Doctor.remove()
-
+    
     const joshi = new Doctor({
         name: 'Joshi',
         specialty: 'Heart',
@@ -34,8 +34,7 @@ const saved = async () => {
     
     joshi.patients.push(jimmy)
 
-
-    await joshi.save()
+   await joshi.save()
 
     const annie = new Doctor({
         name: 'Annie',
