@@ -22,7 +22,15 @@ class Doctors extends Component {
                 console.error(err)
             })
     }
-
+    createUser = (newDoctor) => {
+        console.log('create new doctor called')
+        axios.post('/api/doctors', { newDoctor })
+            .then((res) => {
+                const doctors = [this.state.doctors]
+                doctors.push(res.data)
+                this.setState({ doctors })
+            })
+    }
     toggleShowNewForm = () => {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
@@ -46,7 +54,7 @@ class Doctors extends Component {
                 <h1>Doctors</h1> <Link to="/login">Doctor Login </Link>
                 {doctorsLinks}
                 <button onClick={this.toggleShowNewForm}>Create New Doctor </button>
-                {this.state.showNewForm ? <NewDoctorForm doctors={this.state.doctors} /> : null}
+                {this.state.showNewForm ? <NewDoctorForm /> : null}
             </div>
 
         )
