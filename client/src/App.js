@@ -10,13 +10,15 @@ class App extends Component {
  
   render() {
     
+
+    
   return (
       <Router>
         <div>
           <Switch>
             <Route exact path="/" component={Doctors} />
             <Route exact path="/login" component={LogIn} />
-            <Route exact path="/:id" component={SingleDoctor} />
+            <Route exact path="/doctors/:id" component={SingleDoctor} />
           </Switch>
         </div>
       </Router>

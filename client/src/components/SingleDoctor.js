@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SingleDoctor extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Specific Doctor</h1>
-            </div>
-        );
-    }
-}
+const SingleDoctor = () => {
+    return (
+        <div>
+            <h1>Specfic doctors</h1>
+        </div>
+    );
+};
 
 export default SingleDoctor;
