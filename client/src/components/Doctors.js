@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NewDoctorForm from './NewDoctorForm'
-
+import SingleDoctor from './SingleDoctor';
+import UpdateDoctor from './UpdateDoctor'
 
 class Doctors extends Component {
     state = {
@@ -32,6 +33,7 @@ class Doctors extends Component {
                 this.setState({ doctors })
             })
     }
+  
    
   
     toggleShowNewForm = () => {
@@ -44,7 +46,7 @@ class Doctors extends Component {
             return (
                 <div key={i}>
                     <Link to={`/doctors/${doctor._id}`}>{doctor.name}</Link>
-                    <h3>Name: {doctor.name}</h3>
+                     <h3>Name: {doctor.name}</h3>
                     <h3>Specialty: {doctor.specialty}</h3>
                     <h3>Hospital: {doctor.hospital}</h3>
                     <h3>Location: {doctor.location}</h3>
@@ -59,6 +61,9 @@ class Doctors extends Component {
                 {doctorsLinks}
                 <button onClick={this.toggleShowNewForm}>Create New Doctor </button>
                 {this.state.showNewForm ? <NewDoctorForm getAllDoctors={this.getAllDoctors}/> : null}
+                <SingleDoctor getAllDoctors={this.getAllDoctors} />
+                <UpdateDoctor getAllDoctors={this.getAllDoctors} />
+                
             </div>
 
         )
