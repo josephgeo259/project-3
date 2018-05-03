@@ -18,7 +18,7 @@ class NewDoctorForm extends Component {
         this.setState(newState)
     }
 
-    handleSubmit =  (event) => {
+    handleSubmit = async event => {
         event.preventDefault()
         const transferdata = {
         name: this.state.name,
@@ -26,15 +26,11 @@ class NewDoctorForm extends Component {
         hospital: this.state.hospital,
         location: this.state.location
         }
-         axios.post('/api/doctors', transferdata)
+        await  axios.post('/api/doctors', transferdata);
+        await this.props.getAllDoctors()
     }
-    callCreatedDoctor =() =>{
-        const newDoctor ={...this.state.newdoctor}
-        this.props.createDoctor(newDoctor)
-    }
-
    
-    render() {
+     render() {
     return(
     <div>
         

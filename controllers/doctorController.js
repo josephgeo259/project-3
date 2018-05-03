@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-// get doctor by id 
+// get doctor and show by id 
 router.get('/:id', async (req, res) => {
     try {
         const doctorId = req.params.id;
@@ -25,7 +25,9 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// creat route
+
+
+// create route
 router.post('/', async (req, res) => {
     try {
         const newDoctor = req.body
@@ -50,17 +52,6 @@ router.patch('/:id', async (req, res) => {
     }
 })
 
-// show route
-router.get('/:id', async (req, res) => {
-    try {
-        const doctorId = req.params.id
-        const doctor = await Creature.findById(doctorId)
-        res.json(doctor)
-    } catch (err) {
-        console.log(err)
-        res.json(err)
-    }
-})
 
 // delete route
 router.delete('/:id', async (req, res) => {
@@ -68,12 +59,13 @@ router.delete('/:id', async (req, res) => {
         const doctorId = req.params.id
         await Doctor.findByIdAndRemove(doctorId)
         res.json({
-            msg: 'Successfully Deleted'
+            msg: 'Doctor Deleted'
         })
     } catch (err) {
         console.log(err)
         res.status(500).json(err)
     }
 })
+
 
 module.exports = router 

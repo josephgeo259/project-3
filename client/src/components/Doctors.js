@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NewDoctorForm from './NewDoctorForm'
 
+
 class Doctors extends Component {
     state = {
         doctors: [],
@@ -22,7 +23,7 @@ class Doctors extends Component {
                 console.error(err)
             })
     }
-    createUser = (newDoctor) => {
+    createDoctor = (newDoctor) => {
         console.log('create new doctor called')
         axios.post('/api/doctors', { newDoctor })
             .then((res) => {
@@ -31,6 +32,8 @@ class Doctors extends Component {
                 this.setState({ doctors })
             })
     }
+   
+  
     toggleShowNewForm = () => {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
@@ -45,6 +48,7 @@ class Doctors extends Component {
                     <h3>Specialty: {doctor.specialty}</h3>
                     <h3>Hospital: {doctor.hospital}</h3>
                     <h3>Location: {doctor.location}</h3>
+
                 </div>)
 
         })
@@ -54,7 +58,7 @@ class Doctors extends Component {
                 <h1>Doctors</h1> <Link to="/login">Doctor Login </Link>
                 {doctorsLinks}
                 <button onClick={this.toggleShowNewForm}>Create New Doctor </button>
-                {this.state.showNewForm ? <NewDoctorForm /> : null}
+                {this.state.showNewForm ? <NewDoctorForm getAllDoctors={this.getAllDoctors}/> : null}
             </div>
 
         )
