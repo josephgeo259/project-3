@@ -63,14 +63,22 @@ class Patients extends Component {
                     <h1>Patients</h1>
                     <form onSubmit={this.handleSignUp}>
                         <div>
-                            <label htmlFor="userName">Patients Name</label>
-                            <input onChange={this.handleChange} name="userName" type="text" value={this.state.userName} />
+                            <label htmlFor="Name">Patients Name</label>
+                            <input onChange={this.handleChange} name="userName" type="text"  />
                         </div>
                         <div>
-                            <label htmlFor="password">Password</label>
-                            <input onChange={this.handleChange} name="password" type="text" value={this.state.password} />
+                            <label htmlFor="Age">Age</label>
+                            <input onChange={this.handleChange} name="password" type="text"  />
                         </div>
-                        <button>Sign Up</button>
+                        <div>
+                            <label htmlFor="Address">Address</label>
+                            <input onChange={this.handleChange} name="password" type="text" />
+                        </div>
+                        <div>
+                            <label htmlFor="Medical History">Medical History</label>
+                            <input onChange={this.handleChange} name="password" type="text" />
+                        </div>
+                        <button>Submit</button>
                         <Link to='/'><button>Go Home</button></Link>
                     </form>
                 </div>
