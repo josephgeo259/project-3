@@ -26,6 +26,8 @@ class App extends Component {
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/doctors/:id" component={SingleDoctor} />
             {/* <Route exact path="/patients/:id" component={Patients} /> */}
+            {/* <Route exact path="/patients/:id" component={SinglePatients} /> */}
+          {/* <Route exact path="/patients/:id" component={MedicalConditions} /> */}
           </Switch>
         </div>
       </Router>
