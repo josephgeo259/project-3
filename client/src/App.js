@@ -3,7 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Doctors from './components/Doctors'
 import SingleDoctor from './components/SingleDoctor'
 import LogIn from './components/LogIn';
+import { injectGlobal } from 'styled-components'
 
+injectGlobal`
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+
+`
 
 class App extends Component {
  

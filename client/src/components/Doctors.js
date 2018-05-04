@@ -4,29 +4,102 @@ import axios from 'axios'
 import NewDoctorForm from './NewDoctorForm'
 import SingleDoctor from './SingleDoctor';
 import styled from 'styled-components';
+const DoctorWrapper = styled.div`
+border-radius: 3px;
+padding: 0.25em 1em;
+margin: 0 1em;
+background: transparent;
+color: royalblue;
+border: 6px solid turquoise;
+text-align: center;
+background-image: url("https://i.imgur.com/vXLmIPv.jpg");
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+section {
+    flex-grow: 1;
+}
+
+a, h3 {
+    font-family: 'Bree Serif', serif;
+    font-size:65px;
+    padding:7px;
+}
+h1 {
+    font-family: 'Sacramento', cursive;
+    font-size:130px;
+    padding:7px;
+}
+
+a {
+    margin: 10px;
+    padding:10px
+}
+
+button{
+border-radius: 3px;
+  padding: 0.25em 1em;
+  margin: 0 1em;
+  background: transparent;
+  color: #6C3FFD;
+  border-radius:20px;
+  border: 2px solid ;
+}`
+
+
+
 
 const FormWrapper = styled.div`
 border-radius: 3px;
 padding: 0.25em 1em;
 margin: 0 1em;
 background: transparent;
-color: palevioletred;
+color: royalblue;
 border: 6px solid turquoise;
 text-align: center;
+background-image: url("https://i.imgur.com/vXLmIPv.jpg");
 
 body {
     min-height: 100vh;
     margin: 0 auto;
-    font: 12pt Comic Sans MS;
     display: flex;
     flex-direction: column;
-    justify-content: space - between;
-    background-image:
+    justify-content: space-between;
 }
 section {
     flex-grow: 1;
 }
-`;
+
+a, h3 {
+    font-family: 'Bree Serif', serif;
+    font-size:35px;
+    padding:7px;
+}
+h1 {
+    font-family: 'Sacramento', cursive;
+    font-size:100px;
+    padding:7px;
+}
+
+a {
+    margin: 10px;
+    padding:10px
+}
+
+button{
+border-radius: 3px;
+  padding: 0.25em 1em;
+  margin: 0 1em;
+  background: transparent;
+  color: #6C3FFD;
+  border-radius:20px;
+  border: 2px solid ;
+}`
 
 class Doctors extends Component {
     state = {
@@ -67,22 +140,27 @@ class Doctors extends Component {
 
         const doctorsLinks = this.state.doctors.map((doctor, i) => {
             return (
-                
+                <DoctorWrapper>
                 <div key={i}>
                     <Link to={`/doctors/${doctor._id}`}>{doctor.name}</Link>
+                    <br/>
                      <h3>Name: {doctor.name}</h3>
+
                     <h3>Specialty: {doctor.specialty}</h3>
                     <h3>Hospital: {doctor.hospital}</h3>
                     <h3>Location: {doctor.location}</h3>
 
-                </div>)
-
-        })
+                </div>
+</DoctorWrapper>
+        )})
 
         return (
             <FormWrapper>
             <div>
-                <h1>Doctors</h1> <Link to="/login">Doctor Login </Link>
+                <h1>Doctors</h1> <br/>
+
+                <Link to="/login">Doctor Login </Link>
+                    <hr />
                 {doctorsLinks}
                 <button onClick={this.toggleShowNewForm}>Create New Doctor </button>
                 {this.state.showNewForm ? <NewDoctorForm getAllDoctors={this.getAllDoctors}/> : null}
