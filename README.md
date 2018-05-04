@@ -1,6 +1,5 @@
 # Project-3 
 
-
 # Instructions: 
 This is an app where one may store data under an Admin who can regulate Doctors, Pateints, and their medical conditions. Doctors take so long to come and speak to there patients because they do not have enough time to look over past conditions and add new condition as you go. It is an app in which time will be decreased and efficiency is the top priority.This is a great opportunity for hospital to build a stable data flow for organization pruposes. 
 
@@ -20,9 +19,11 @@ This web application helped my project stay organized and kept my focus on small
 https://trello.com/b/Z7XxtSER/project-3
 
 # ERD:
+https://imgur.com/a/TmDFpsZ
 
 # Wireframe: 
 These are the beginning templates for my app. Take a look at the wireframe.
+https://imgur.com/a/PPwRJ9g
 
 # Resources:
 classmates 

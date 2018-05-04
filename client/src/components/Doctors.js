@@ -4,8 +4,28 @@ import axios from 'axios'
 import NewDoctorForm from './NewDoctorForm'
 import SingleDoctor from './SingleDoctor';
 import styled from 'styled-components';
-import styled, { css } from 'styled-components'
 
+const FormWrapper = styled.div`
+border-radius: 3px;
+padding: 0.25em 1em;
+margin: 0 1em;
+background: transparent;
+color: palevioletred;
+border: 6px solid turquoise;
+text-align: center;
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    font: 12pt Comic Sans MS;
+    display: flex;
+    flex-direction: column;
+    justify-content: space - between;
+}
+section {
+    flex-grow: 1;
+}
+`;
 
 class Doctors extends Component {
     state = {
@@ -46,6 +66,7 @@ class Doctors extends Component {
 
         const doctorsLinks = this.state.doctors.map((doctor, i) => {
             return (
+                
                 <div key={i}>
                     <Link to={`/doctors/${doctor._id}`}>{doctor.name}</Link>
                      <h3>Name: {doctor.name}</h3>
@@ -58,6 +79,7 @@ class Doctors extends Component {
         })
 
         return (
+            <FormWrapper>
             <div>
                 <h1>Doctors</h1> <Link to="/login">Doctor Login </Link>
                 {doctorsLinks}
@@ -67,18 +89,10 @@ class Doctors extends Component {
                
                 
             </div>
+                </FormWrapper>
 
-        )
+        );
     }
 }
-
 export default Doctors
 
-const Button = styled.button``;
-border - radius: 3px;
-padding: 0.25em 1em;
-margin: 0 1em;
-background: transparent;
-color: palevioletred;
-border: 2px solid palevioletred;
-`;
