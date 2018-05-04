@@ -34,12 +34,7 @@ class UpdateDoctor extends Component {
                 this.props.toggleShowUpdate();
             });
     }; 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        const futureState = {
-            updatedDoctor: nextProps.doctor
-        }
-        return futureState
-    }
+    
 
     render() {
         return 

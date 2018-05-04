@@ -13,16 +13,16 @@ class SingleDoctor extends Component {
         this.setState({ updateDoctor: !this.state.updateDoctor });
     };
 
-    async componentDidMount() {
-        this.getSingleDoctor();
-    }
+//     async componentDidMount() {
+//         this.getSingleDoctor();
+//     }
 
-    getSingleDoctor = async () => {
-        const doctorId = this.props.match.params.id;
-        const res = await axios.get(`/api/doctor/${doctorId}`);
-        const doctor = res.data;
-        this.setState({ doctor });
-         };
+// getSingleDoctor = async () => {
+//         const doctorId = this.props.match.params.id;
+//         const res = await axios.get(`/api/doctors/${doctorId}`);
+//         const doctor = res.data;
+//         this.setState({ doctor });
+//          };
 
     removeDoctor = () => {
         const doctorId = this.props.match.params.id;
@@ -43,7 +43,7 @@ class SingleDoctor extends Component {
             }
             return doctor
         })
-        this.setState({ docotrs: newDoctors })
+        this.setState({ doctors: newDoctors })
     }
     updateDoctor = (doctor) => {
         console.log("updating the doctor in the db")

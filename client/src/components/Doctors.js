@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NewDoctorForm from './NewDoctorForm'
 import SingleDoctor from './SingleDoctor';
-import UpdateDoctor from './UpdateDoctor'
+import styled from 'styled-components';
+import styled, { css } from 'styled-components'
+
 
 class Doctors extends Component {
     state = {
@@ -61,8 +63,8 @@ class Doctors extends Component {
                 {doctorsLinks}
                 <button onClick={this.toggleShowNewForm}>Create New Doctor </button>
                 {this.state.showNewForm ? <NewDoctorForm getAllDoctors={this.getAllDoctors}/> : null}
-                <SingleDoctor getAllDoctors={this.getAllDoctors} />
-                <UpdateDoctor getAllDoctors={this.getAllDoctors} />
+                
+               
                 
             </div>
 
@@ -71,3 +73,12 @@ class Doctors extends Component {
 }
 
 export default Doctors
+
+const Button = styled.button``;
+border - radius: 3px;
+padding: 0.25em 1em;
+margin: 0 1em;
+background: transparent;
+color: palevioletred;
+border: 2px solid palevioletred;
+`;
