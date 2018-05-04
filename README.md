@@ -41,6 +41,7 @@ I want to build a landing page and home button.
 I also want to have an admin login for security.
 Patients and medical conditions showing on different pages.
 Finish doctors and medical conditons routes. 
+Make a controller for medical conditions and patients.
 
 # Problems:
 Took to much time on crud on doctors create was hard for me. 
