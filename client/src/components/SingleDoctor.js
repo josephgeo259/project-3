@@ -104,7 +104,7 @@ class SingleDoctor extends Component {
         return (
             <FormWrapper>
         <div>
-            <h1>Specfic doctors</h1>
+            <h1>Specfic Doctors</h1>
             <Link to='/'><button>Go Home</button></Link>
             <button onClick={this.removeDoctor}>Delete Doctor</button>
                 <h3>Name: {this.state.doctor.name}</h3>
